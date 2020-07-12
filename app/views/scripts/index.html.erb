@@ -1,0 +1,16 @@
+<div class="banner">
+  <div class="my-title">
+    <h1>Scripts</h1>
+    <%= link_to 'create a script', new_script_path, class: 'btn btn-danger' %>
+  </div>
+</div>
+
+<div class="my-container">
+  <div class="cards">
+    <% @scripts.each do |script| %>
+      <%= link_to script_path(script) do %>
+        <h2> <%= script.name %></h2>
+      <% end %>
+    <% end %>
+  </div>
+</div>
