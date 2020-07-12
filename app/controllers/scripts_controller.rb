@@ -1,20 +1,24 @@
 class ScriptsController < ApplicationController
 
   def index
-    @scripts = Script.all
+    # @scripts = Script.all
+    @scripts = policy_scope(Script) # .order(created_at: :desc)
   end
 
   def new
     @script = Script.new
+    authorize @script
   end
 
   def show
     @script = Script.find(params[:id])
+    authorize @script
   end
 
   def create
     @script = Script.new(script_params)
     @script.user = current_user
+    authorize @script
     if @script.save
       redirect_to scripts_path, notice: 'Script successfully created.'
     else
@@ -35,6 +39,7 @@ class ScriptsController < ApplicationController
 
   def destroy
     @script = Script.find(params[:id])
+    authorize @script
     @script.destroy
 
     redirect_to scripts_path
