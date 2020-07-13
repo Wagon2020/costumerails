@@ -8,13 +8,16 @@
 
 
   <div>
-    <h3>my scenes</h3>
+
+    <div class="menu-bar">
+      <h3> my scenes </h3>
+      <h3> my roles </h3>
+    </div>
+
     <div>
       <% @scenes.each do |scene| %>
         <h4><%= scene.number %>: <%= link_to script_scene_path(@script, scene) do %> <%= scene.name %></h4>
-        <%= link_to scene_path(scene), method: :delete, data: { confirm: "Are you sure?" } do %>
         <i class="fa fa-trash destroy_dose"></i>
-        <% end %>
         <% end %>
         <p><%= scene.body %></p>
     <% end %>
