@@ -12,6 +12,7 @@ class ScriptsController < ApplicationController
 
   def show
     @script = Script.find(params[:id])
+    @scenes = Scene.where(script_id: @script).order(number: :asc)
     authorize @script
   end
 

@@ -5,8 +5,24 @@
       <i class="fa fa-trash destroy_dose"></i>
     <% end %>
   </div>
-</div>
 
+
+  <div>
+    <h3>my scenes</h3>
+    <div>
+      <% @scenes.each do |scene| %>
+        <h4><%= scene.number %>: <%= link_to script_scene_path(@script, scene) do %> <%= scene.name %></h4>
+        <%= link_to scene_path(scene), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash destroy_dose"></i>
+        <% end %>
+        <% end %>
+        <p><%= scene.body %></p>
+    <% end %>
+    </div>
+  </div>
+
+  <hr>
+  <%= link_to 'add scene', new_script_scene_path(@script), class: 'btn btn-danger' %>
   <%= link_to "back", scripts_path  %>
 </div>
 
