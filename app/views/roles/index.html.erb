@@ -1,0 +1,14 @@
+    <div class="my-title">
+      <h1>Roles</h1>
+    </div>
+
+  <div class="my-container">
+    <div class="script-cards">
+      <% @script.roles.each do |role| %>
+          <h2> <%= role.name %></h2>
+      <% end %>
+    </div>
+  </div>
+
+  <hr>
+  <%= link_to "back", script_path(@script)  %>

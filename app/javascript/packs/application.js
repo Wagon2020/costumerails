@@ -18,7 +18,6 @@ require("channels")
 
 
 // ----------------------------------------------------
-// Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
@@ -51,7 +50,7 @@ Trix.config.textAttributes.red = {
 
 /* insert the button visual in the default toolbar */
 addEventListener("trix-initialize", function(event) {
-    var buttonHTML = '<button type="button" data-trix-attribute="red">RED</button>'
+    const buttonHTML = '<button type="button" data-trix-attribute="red">RED</button>'
 
     event.target.toolbarElement.
     querySelector(".trix-button-group").

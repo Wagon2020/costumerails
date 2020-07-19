@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_210028) do
+ActiveRecord::Schema.define(version: 2020_07_19_121441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2020_07_13_210028) do
     t.index ["script_id"], name: "index_roles_on_script_id"
   end
 
+  create_table "scene_roles", force: :cascade do |t|
+    t.bigint "role_id", null: false
+    t.bigint "scene_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_scene_roles_on_role_id"
+    t.index ["scene_id"], name: "index_scene_roles_on_scene_id"
+  end
+
   create_table "scenes", force: :cascade do |t|
     t.integer "number"
     t.string "name"
@@ -91,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_210028) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "roles", "scripts"
+  add_foreign_key "scene_roles", "roles"
+  add_foreign_key "scene_roles", "scenes"
   add_foreign_key "scenes", "scripts"
   add_foreign_key "scripts", "users"
 end
