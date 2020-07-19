@@ -10,16 +10,20 @@
   <div>
 
     <div class="menu-bar">
-      <h3> my scenes </h3>
-      <h3> my roles </h3>
+      <h3> scenes </h3>
+      <h3> roles </h3>
+      <h3> cast </h3>
+      <h3> costumes </h3>
     </div>
 
     <div>
       <% @scenes.each do |scene| %>
-        <h4><%= scene.number %>: <%= link_to script_scene_path(@script, scene) do %> <%= scene.name %></h4>
-        <i class="fa fa-trash destroy_dose"></i>
-        <% end %>
-        <p><%= scene.body %></p>
+        <div class="scene-header">
+          <%= scene.number %>: <%= link_to script_scene_path(@script, scene) do %> <%= scene.name %>
+          <% end %>
+          <%= link_to "Update", edit_scene_path(scene) %>
+        </div>
+        <p><%= scene.body.to_plain_text.truncate(50) %></p>
     <% end %>
     </div>
   </div>

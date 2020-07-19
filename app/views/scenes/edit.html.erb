@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for [@scene] do |f| %>
+  <%= f.input :number %>
+  <%= f.input :name %>
+  <%= f.input :body, as: :rich_text_area %>
+  <%= f.input :mood %>
+  <%= f.input :place %>
+  <%= f.input :notes %>
+  <%= f.submit %>
+  <% end %>
+
+  <p><%= link_to 'back', script_path(@script)  %></p>
+</div>

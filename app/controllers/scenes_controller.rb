@@ -33,6 +33,21 @@ class ScenesController < ApplicationController
     # authorize @script
   end
 
+  def edit
+    @scene = Scene.find(params[:id])
+    @script = @scene.script
+    authorize @scene
+  end
+
+  def update
+    @scene = Scene.find(params[:id])
+    @script = @scene.script
+    @scene.update(scene_params)
+    authorize @scene
+
+    redirect_to script_path(@script)
+  end
+
   def destroy
     @scene = Scene.find(params[:id])
     @script = Script.find(@scene.script_id)
@@ -46,6 +61,6 @@ class ScenesController < ApplicationController
   private
 
   def scene_params
-    params.require(:scene).permit(:number, :name, :description, :body)
+    params.require(:scene).permit(:number, :name, :description, :body, :mood, :place, :notes)
   end
 end

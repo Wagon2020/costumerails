@@ -20,5 +20,14 @@ module Costumerails
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # the following part is needed to persist custom Trix elements in 'show':
+    config.after_initialize do
+      # ActionText::ContentHelper.allowed_attributes.add 'style'
+      ActionText::Attachment::ATTRIBUTES << "style"
+    end
+
   end
+
 end
+
