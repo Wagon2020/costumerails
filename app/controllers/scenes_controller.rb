@@ -29,6 +29,7 @@ class ScenesController < ApplicationController
   def show
     @scene = Scene.find(params[:id])
     @script = Script.find(@scene.script_id)
+    @roles = SceneRole.where(scene_id: @scene)
     skip_authorization
     # authorize @script
   end

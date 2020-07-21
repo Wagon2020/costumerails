@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for [@script, @role] do |f| %>
+  <%= f.input :number %>
+  <%= f.input :name %>
+  <%= f.input :notes %>
+  <%= f.submit %>
+  <% end %>
+
+  <p><%= link_to 'back', script_path(@script)  %></p>
+</div>

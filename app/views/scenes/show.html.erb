@@ -1,6 +1,12 @@
 <div class="container">
   <div class="show-card">
     <h3><%= @scene.name %></h3>
+    <div class="role-bar">
+      <h5>Roles: </h5> ---
+      <% @roles.each do |role| %>
+        <h5><a href="#"><%= Role.find(role.role_id).name %></a></h5>---
+      <% end %>
+    </div>
     <p><%= @scene.body  %></p>
     <%= link_to scene_path(@scene), method: :delete, data: { confirm: "Are you sure?" } do %>
       <i class="fa fa-trash destroy_dose"></i>
