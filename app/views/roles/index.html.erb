@@ -3,9 +3,17 @@
     </div>
 
   <div class="my-container">
-    <div class="script-cards">
+    <div class="role-cards">
       <% @script.roles.each do |role| %>
-          <h2> <%= role.name %></h2>
+          <div class="role-card">
+            <h2> <%= role.name %></h2>
+            <%= link_to script_path(@script) do %>
+              <i class="fa fa-plus"></i>
+            <% end %>
+            <% role.scenes.all.each do |scene| %>
+              <h2><%= scene.number %></h2>&nbsp
+            <% end %>
+          </div>
       <% end %>
     </div>
   </div>
