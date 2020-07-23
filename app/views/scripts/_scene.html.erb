@@ -1,0 +1,38 @@
+
+    <div class="scene-card">
+        <div class="scene-card-header">
+          <div class="scene-card-header-number">
+            <%= scene.number %>
+          </div>
+          <div class="scene-card-header-name">
+            <%= link_to script_scene_path(@script, scene) do %> <%= scene.name %> <% end %>
+          </div>
+          <div class="scene-card-header-mood">
+            <strong>mood:</strong>
+            <%= scene.mood %>
+          </div>
+          <div class="scene-card-header-place">
+            <strong>place:</strong>
+            <%= scene.place %>
+          </div>
+
+        </div>
+
+        <div class="scene-card-roles">
+          <div><strong>roles:</strong></div>
+          <% scene.roles.each do |role| %>
+            <div class="scene-card-role"><%= role.name %></div>
+          <% end %>
+        </div>
+
+        <div class="scene-card-description">
+          <p><%= scene.body.to_plain_text.truncate(50) %></p>
+        </div>
+
+        <div class="scene-card-notes">
+          <%= scene.notes %>
+        </div>
+
+          <%= link_to "Update", edit_scene_path(scene) %>
+
+    </div>

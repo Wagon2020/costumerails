@@ -1,0 +1,48 @@
+.scene-card {
+  background: rgb(255,255,255);
+  margin-top: 8px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 4px;
+}
+
+.scene-card-header {
+  display: flex;
+  background: rgb(247, 247, 247);
+
+}
+
+.scene-card-header-number {
+  padding-left: 16px;
+  width: 64px;
+  background: rgb(239, 239, 239)
+}
+
+.scene-card-header-name {
+  padding-left: 16px;
+  flex: 1;
+}
+
+.scene-card-header-mood {
+  min-width: 160px;
+  padding: 0 16px;
+}
+
+.scene-card-header-place {
+  min-width: 160px;
+  padding: 0 16px;
+}
+
+.scene-card-roles {
+  display: flex;
+  background: rgb(231,231,231);
+  // padding-left: 16px;
+}
+
+.scene-card-roles div {
+  width: 64px;
+  padding-left: 16px;
+}
+
+.scene-card-role {
+  padding-left: 16px;
+}
